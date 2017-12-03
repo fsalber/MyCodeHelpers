@@ -78,3 +78,16 @@ function dump($var) {
     print_r($var);
     echo '</pre>';
 }
+
+/**
+ * Display gravatar picture
+ * @param $email (string) Gravatar email
+ * @return $grav_url (string) URL to include in img src attr
+ */
+function gravatar($email) {
+    $size = 150;
+    $default = "http://www.gravatar.com/avatar?s=150";
+    $grav_url = "https://www.gravatar.com/avatar/".md5(strtolower(trim($email)))."?d=".urlencode($default)."&s=".$size;
+
+    return $grav_url;
+}
